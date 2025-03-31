@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Webpage</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma/css/bulma.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body onload="displayGreeting()">
+    <nav class="navbar is-dark">
+        <div class="container">
+            <div class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="#home">Home</a>
+                    <a class="navbar-item" href="#about">About</a>
+                    <a class="navbar-item" href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Welcome to My Responsive Webpage</h1>
+            <p class="subtitle">This is a responsive page using Bulma and Bootstrap.</p>
+            
+            <div class="columns">
+                <div class="column is-half">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://via.placeholder.com/400" alt="Sample Image">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <p class="title">Responsive Card</p>
+                            <p class="content">This is a sample card component using Bulma.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-half">
+                    <h2 class="title">Simple Calculator</h2>
+                    <input class="input" type="number" id="num1" placeholder="Enter first number">
+                    <input class="input" type="number" id="num2" placeholder="Enter second number">
+                    <button class="button is-primary" onclick="calculateSum()">Add</button>
+                    <p id="result"></p>
+                </div>
+            </div>
+
+            <h2 class="title">Click the Button to Change Its Color</h2>
+            <button id="colorButton" class="button is-danger" onclick="changeColor()">Click Me</button>
+        </div>
+    </section>
+
+    <script>
+        function changeColor() {
+            let button = document.getElementById("colorButton");
+            button.classList.toggle("is-success");
+        }
+
+        function displayGreeting() {
+            let hours = new Date().getHours();
+            let greeting;
+            if (hours < 12) {
+                greeting = "Good Morning!";
+            } else if (hours < 18) {
+                greeting = "Good Afternoon!";
+            } else {
+                greeting = "Good Evening!";
+            }
+            alert(greeting);
+        }
+
+        function calculateSum() {
+            let num1 = parseFloat(document.getElementById("num1").value) || 0;
+            let num2 = parseFloat(document.getElementById("num2").value) || 0;
+            let sum = num1 + num2;
+            document.getElementById("result").innerText = "Result: " + sum;
+        }
+    </script>
+</body>
+</html>
